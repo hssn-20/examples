@@ -179,7 +179,7 @@ virusconstants.splits['train'] = DataSplitConstants(hf_split='train',
 #                                                      raw_samples=10000,
 #                                                      truncated_samples=10000)
 
-CONSTS = {'c4': c4constants, 'the_pile': pileconstants, 'hack90/virus': virusconstants}
+CONSTS = {'c4': c4constants, 'the_pile': pileconstants, 'Hack90/virus_dna_dataset': virusconstants}
 
 
 class NoConcatDataset(IterableDataset):
@@ -415,7 +415,7 @@ def main(args: Namespace) -> None:
         dataset_constants = CONSTS[args.dataset]
     except KeyError:
         raise ValueError(
-            f'Constants for dataset "{args.dataset}" not found. Currently only "the_pile" and "c4" are supported.'
+            f'Constants for dataset "{args.dataset}" not found. Currently only "the_pile" and "c4" are supported.' + str(CONSTS) + str(args.dataset)
         )
 
     if args.concat_tokens is not None:
