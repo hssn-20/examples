@@ -157,7 +157,29 @@ c4constants.splits['val_small'] = DataSplitConstants(hf_split='validation',
                                                      raw_samples=10000,
                                                      truncated_samples=10000)
 
-CONSTS = {'c4': c4constants, 'the_pile': pileconstants}
+virusconstants = DatasetConstants(
+    chars_per_sample=2163,  # Computed over validation set
+    chars_per_token=4  # OpenAI estimate
+)
+virusconstants.splits['train'] = DataSplitConstants(hf_split='train',
+                                                 folder_split='train',
+                                                 raw_samples=2_602_437,
+                                                 truncated_samples=None)
+# virusconstants.splits['train_small'] = DataSplitConstants(
+#     hf_split='train',
+#     folder_split='train_small',
+#     raw_samples=1000000,
+#     truncated_samples=100000)
+# virusconstants.splits['val'] = DataSplitConstants(hf_split='validation',
+#                                                folder_split='val',
+#                                                raw_samples=364608,
+#                                                truncated_samples=None)
+# virusconstants.splits['val_small'] = DataSplitConstants(hf_split='validation',
+#                                                      folder_split='val_small',
+#                                                      raw_samples=10000,
+#                                                      truncated_samples=10000)
+
+CONSTS = {'c4': c4constants, 'the_pile': pileconstants, 'hack90/virus': virusconstants}
 
 
 class NoConcatDataset(IterableDataset):
@@ -176,7 +198,8 @@ class NoConcatDataset(IterableDataset):
     def __iter__(self) -> Iterable[Dict[str, bytes]]:
         for sample in self.hf_dataset:
             # convert to bytes to store in MDS binary format
-            yield {'text': sample['text'].encode('utf-8')}
+            # yield {'text': sample['text'].encode('utf-8')}
+            yield {'text': sample['sequence'].encode('utf-8')}
 
 
 class ConcatTokensDataset(IterableDataset):
