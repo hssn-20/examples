@@ -342,7 +342,7 @@ if __name__ == '__main__':
         help='the path to the remote copy to stream from (optional)')
     parser.add_argument('--split',
                         type=str,
-                        default='val',
+                        default='train',
                         help='which split of the dataset to use')
     parser.add_argument('--max_seq_len',
                         type=int,
