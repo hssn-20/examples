@@ -198,8 +198,8 @@ class NoConcatDataset(IterableDataset):
     def __iter__(self) -> Iterable[Dict[str, bytes]]:
         for sample in self.hf_dataset:
             # convert to bytes to store in MDS binary format
-            # yield {'text': sample['text'].encode('utf-8')}
-            yield {'text': sample['sequence'].encode('utf-8')}
+            yield {'text': sample['text'].encode('utf-8')}
+            #yield {'text': sample['sequence'].encode('utf-8')}
 
 
 class ConcatTokensDataset(IterableDataset):
