@@ -163,7 +163,7 @@ virusconstants = DatasetConstants(
 )
 virusconstants.splits['train'] = DataSplitConstants(hf_split='train',
                                                  folder_split='train',
-                                                 raw_samples=44285,
+                                                 raw_samples=2073992,
                                                  truncated_samples=None)
 # virusconstants.splits['train_small'] = DataSplitConstants(
 #     hf_split='train',
@@ -172,14 +172,14 @@ virusconstants.splits['train'] = DataSplitConstants(hf_split='train',
 #     truncated_samples=100000)
 virusconstants.splits['val'] = DataSplitConstants(hf_split='valid',
                                                folder_split='val',
-                                               raw_samples=5536,
+                                               raw_samples=259249,
                                                truncated_samples=None)
 # virusconstants.splits['val_small'] = DataSplitConstants(hf_split='validation',
 #                                                      folder_split='val_small',
 #                                                      raw_samples=10000,
 #                                                      truncated_samples=10000)
 
-CONSTS = {'c4': c4constants, 'the_pile': pileconstants, 'Hack90/virus_10kbp_50kbp': virusconstants}
+CONSTS = {'c4': c4constants, 'the_pile': pileconstants, 'Hack90/virus_bert_chunk_2kbp': virusconstants}
 
 
 class NoConcatDataset(IterableDataset):
