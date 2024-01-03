@@ -227,7 +227,7 @@ class BertUnpadSelfAttention(nn.Module):
                                                                  3)  # b s h d
         else:
             # Triton implementation only supports 0 attention dropout
-            convert_dtype = qkv.dtype not in [torch.float16, torch.bfloat16]
+            convert_dtype = qkv.dtype not in [torch.float16]
             if convert_dtype:
                 # Triton implementation only supports fp16 and bf16
                 orig_dtype = qkv.dtype

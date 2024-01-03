@@ -776,8 +776,7 @@ def _flash_attn_forward(q, k, v, bias=None, causal=False, softmax_scale=None):
     assert v.shape == (batch, seqlen_k, nheads, d)
     assert d <= 128, 'FlashAttention only support head dimensions up to 128'
     assert q.dtype == k.dtype == v.dtype, 'All tensors must have the same type'
-    assert q.dtype in [torch.float16,
-                       torch.bfloat16], 'Only support fp16 and bf16'
+    assert q.dtype in [torch.float16], 'Only support fp16 and bf16'
     assert q.is_cuda and k.is_cuda and v.is_cuda
     softmax_scale = softmax_scale or 1.0 / math.sqrt(d)
 
