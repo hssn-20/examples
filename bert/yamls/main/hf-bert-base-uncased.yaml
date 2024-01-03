@@ -6,7 +6,7 @@
 data_local: ./my-copy-c4
 data_remote: # If blank, files must be present in data_local
 
-max_seq_len: 128
+max_seq_len: 4000
 tokenizer_name: bert-base-uncased
 mlm_probability: 0.15
 
