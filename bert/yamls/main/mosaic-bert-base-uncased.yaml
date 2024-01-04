@@ -98,7 +98,7 @@ loggers:
     project: virus_bert     # Fill this in
     entity: final_run   # Fill this in
 
-(Optional) Checkpoint to local filesystem or remote object store
+#(Optional) Checkpoint to local filesystem or remote object store
 save_interval: 3500ba
 save_num_checkpoints_to_keep: 1  # Important, this cleans up checkpoints saved to DISK
 save_folder:  './{run_name}/ckpt'    # e.g. './{run_name}/ckpt' (local) or 's3://mybucket/mydir/{run_name}/ckpt' (remote)
