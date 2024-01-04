@@ -93,10 +93,10 @@ callbacks:
   lr_monitor: {}
 
 # (Optional) W&B logging
-# loggers:
-#   wandb:
-#     project:      # Fill this in
-#     entity:      # Fill this in
+loggers:
+  wandb:
+    project: virus_bert     # Fill this in
+    entity: final_run   # Fill this in
 
 (Optional) Checkpoint to local filesystem or remote object store
 save_interval: 3500ba
